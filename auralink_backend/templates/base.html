@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}AuraLinks{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-background text-foreground">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navbar -->
+        <nav class="bg-primary text-primary-foreground p-4 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="/" class="text-xl font-bold">AuraLinks</a>
+                <div>
+                    <a href="{% url 'account_login' %}" class="px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition">
+                        Sign In
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto p-6">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-secondary text-secondary-foreground text-center p-4">
+            &copy; 2025 AuraLinks. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
