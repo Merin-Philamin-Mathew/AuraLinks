@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.env
+.env.*
+
+# Django logs
+logs/
+*.log
+local_settings.py
+
+# Database
+db.sqlite3
+*.sqlite3
+*.sqlite
+
+# Media and static files
+media/
+staticfiles/
+
+# Migrations (optional, useful if auto-generating)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# IDE and OS-specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Celery & Redis related
+celerybeat-schedule
+celerybeat.pid
