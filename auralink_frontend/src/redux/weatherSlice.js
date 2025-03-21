@@ -2,7 +2,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '@/config/apis/axios';
 
-// Async thunk for fetching weather by coordinates
 export const fetchWeatherByCoordinates = createAsyncThunk(
   'weather/fetchByCoordinates',
   async ({ lat, lon, locationInfo = {} }, { rejectWithValue }) => {
@@ -29,7 +28,6 @@ export const fetchWeatherByCoordinates = createAsyncThunk(
   }
 );
 
-// New async thunk for setting current location (without weather data)
 export const setCurrentLocation = createAsyncThunk(
   'weather/setCurrentLocation',
   async ({ lat, lon, locationInfo }, { rejectWithValue }) => {
@@ -73,15 +71,15 @@ export const fetchRecentSearches = createAsyncThunk(
 );
 
 const initialState = {
-  currentWeather: null,  // Weather data from API
+  currentWeather: null,  
   forecast: null,
-  selectedLocation: null, // Selected location for weather search
-  currentLocation: null,  // User's current location (no weather data)
+  selectedLocation: null, 
+  currentLocation: null,
   recentSearches: [],
-  status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
+  status: 'idle',
   error: null,
   lastUpdated: null,
-  locationStatus: 'idle' // 'idle' | 'loading' | 'succeeded' | 'failed'
+  locationStatus: 'idle'
 };
 
 const weatherSlice = createSlice({

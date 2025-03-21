@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 
 function DashboardPage() {
-    const { user } = useSelector((state) => state);
-    
+    const {  user_details, logged_in } = useSelector((state) => state.user);
+    console.log(user_details)
     // Initialize dark mode state the same way as HomePage
     const [isDarkMode, setIsDarkMode] = useState(() => {
       const savedTheme = localStorage.getItem('theme');
@@ -25,7 +25,7 @@ function DashboardPage() {
     return (
       <>
         <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-          <MainApp user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+          <MainApp user_details={user_details} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
           <Footer/>
         </div>
       </>

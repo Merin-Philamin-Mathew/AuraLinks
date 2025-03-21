@@ -61,7 +61,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
   );
 };
 
-const Header2 = ({ title, user,isDarkMode, setIsDarkMode }) => {
+const Header2 = ({ title, user_details,isDarkMode, setIsDarkMode }) => {
      // Handle theme change
       useEffect(() => {
         // Update the DOM when dark mode changes
@@ -94,10 +94,9 @@ const Header2 = ({ title, user,isDarkMode, setIsDarkMode }) => {
           {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
         
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium hidden md:block">{user.user_details.name}</span>
+        <div className="flex items-center gap-2">          <span className="text-sm font-medium hidden md:block"></span>
           <div className="h-10 w-10 rounded-full bg-secondary overflow-hidden">
-            <img src={user.user_details.avatar_url} alt={user.user_details.display_name} className="h-full w-full object-cover" />
+            <img src={user_details?.avatar_url} alt={user_details?.display_name} className="h-full w-full object-cover" />
           </div>
         </div>
       </div>
@@ -212,7 +211,7 @@ const JobList = () => {
 
 
 
-const MainApp = ({user, isDarkMode, setIsDarkMode}) => {
+const MainApp = ({user_details, isDarkMode, setIsDarkMode}) => {
   const [loading, setLoading] = useState(true);
   const [activeItem, setActiveItem] = useState('Dashboard');
   
@@ -250,7 +249,7 @@ const MainApp = ({user, isDarkMode, setIsDarkMode}) => {
     <div className="flex h-screen bg-background text-foreground">
       <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header2 title={activeItem} user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+        <Header2 title={activeItem} user_details={user_details} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <div className="flex-1 overflow-y-auto">
           {renderContent()}
         </div>

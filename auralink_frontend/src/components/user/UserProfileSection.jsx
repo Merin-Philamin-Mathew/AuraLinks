@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { logoutUser } from '@/redux/userSlice';
+import { persistor } from '@/redux/store';
 
 const UserProfileSection = () => {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ const UserProfileSection = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
+    persistor.purge();
+    persistor.flush();
     navigate('/');
   };
 

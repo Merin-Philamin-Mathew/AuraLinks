@@ -53,7 +53,7 @@ const HomePage = () => {
     // Set loading to false after attempting to update user
     setTimeout(() => {
       setLoading(false);
-    }, 500); // Small delay to ensure state updates
+    }, 1000); // Small delay to ensure state updates
   }, [location.search, dispatch]);
 
   // Ensure page doesn't load until user data is processed

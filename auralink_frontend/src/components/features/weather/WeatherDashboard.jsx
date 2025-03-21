@@ -1,5 +1,3 @@
-"use client"
-
 import { CloudRain, Sun, Cloud, CloudLightning, CloudSnow, CloudDrizzle } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -20,6 +18,7 @@ function WeatherDashboard() {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords
+            console.log('=========current location1==============')
 
             // Get location details using reverse geocoding
             fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
@@ -31,7 +30,7 @@ function WeatherDashboard() {
                   address: data.address?.road || "",
                   city: data.address?.city || data.address?.town || data.address?.village || "",
                 }
-
+                console.log('=========current location1==============')
                 // Store the current location in Redux
                 dispatch(
                   setCurrentLocation({
@@ -40,6 +39,7 @@ function WeatherDashboard() {
                     locationInfo,
                   }),
                 )
+                console.log('=========current location12==============')
 
                 // Only fetch weather if we don't have it already
                 if (!currentWeather) {
@@ -50,8 +50,11 @@ function WeatherDashboard() {
                       locationInfo,
                     }),
                   )
+                  console.log('=========current location13==============')
                 }
-              })
+
+              }
+            )
               .catch((err) => {
                 console.error("Error fetching location details:", err)
                 // Set minimal location info
