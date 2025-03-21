@@ -19,7 +19,6 @@ def profile_view(request):
     user = request.user
     profile = user.profile
     
-    # Return JSON response for API or render template based on Accept header
     if request.headers.get('Accept') == 'application/json':
         return JsonResponse({
             'username': user.username,
