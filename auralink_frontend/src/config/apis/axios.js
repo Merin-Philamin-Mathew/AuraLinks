@@ -19,7 +19,6 @@ const api = axios.create({
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
-        // 'X-CSRFToken': 'PkML0am6vBm0nFcGB3bByTuqFjAlL5Vv', // Include the CSRF token
     },
 });
 
